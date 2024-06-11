@@ -7,12 +7,13 @@ const App = () => {
   return (
               <Routes>
                 <Route element={<ProtectedRoutes />} >
-                  <Route path="/" element={<Home />} />
+                  <Route path="*" element={<Home />} />
                 </Route>
 
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
               </Routes>
+      
   )
 }
 

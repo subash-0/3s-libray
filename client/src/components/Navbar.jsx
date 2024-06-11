@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import MenuProfile from "./MenuProfile";
 import Sidebar from "./Sidebar";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [profile, setProfile] = useState(false);
@@ -21,11 +22,11 @@ const Navbar = () => {
               {openSideBar ? <IoClose className="text-2xl"/> : <MdMenu className="text-2xl"/>}
               </button>
               
-               <h1 className="border-l-2 pl-2 text-lg font-bold sm:text-2xl">3S LIBRARY</h1>
+               <Link to={"/"} className="border-l-2 pl-2 text-lg font-bold sm:text-2xl drop-shadow-blue">3S LIBRARY</Link>
             </div>
             <div className="flex gap-2 items-center">
                
-                <button className="text-white" onClick={()=>setProfile(!profile)}>Hello!  {username}</button>
+                <button className="text-white drop-shadow-blue" onClick={()=>setProfile(!profile)}>Hello!  {username}</button>
                 <ToggleDarkMode />
             </div>
         </div>

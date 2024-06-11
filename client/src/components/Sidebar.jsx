@@ -7,6 +7,7 @@ import { FaBookReader } from "react-icons/fa";
 import { FaChartBar } from "react-icons/fa";
 import { useEffect, useRef } from "react";
 import { animateSidebar } from "../utils/AnimateComp";
+import { Link } from "react-router-dom";
 
 const sidebarfunction =[
     {
@@ -64,9 +65,9 @@ const Sidebar = () => {
     <div className='w-64 h-[calc(100vh-3rem)] dark:bg-darkbg bg-primary absolute left-0 top-12 z-30'>
       <div className="py-10 px-4 flex flex-col justify-center ">
         {sidebarfunction.map((item, index) => (
-          <div key={index} ref={el=>sidebarRef.current[index] = el} className='flex items-center gap-2 p-2  cursor-pointer dark:hover:text-darkbg text-white hover:bg-white hover:text-primary rounded-md'>
+          <Link to={item.link} key={index} ref={el=>sidebarRef.current[index] = el} className='flex items-center gap-2 p-2  cursor-pointer dark:hover:text-darkbg text-white hover:bg-white hover:text-primary rounded-md'>
             {item.icon} {item.title}
-        </div>
+        </Link>
         ))}
 
       </div>

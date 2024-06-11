@@ -18,6 +18,7 @@ export default {
       'primary':'#189AB4',
       'btnbg':'#75E6DA',
       'blue': '#1fb6ff',
+      'transparent': 'transparent',
       
     },
     dropShadow: {
