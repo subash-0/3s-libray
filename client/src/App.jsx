@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom/dist"
-import { Home, Login, Signup } from "./components"
+import { Login, Signup } from "./components"
 import ProtectedRoutes from "./utils/ProtectedRoutes"
+import { Home } from "./pages"
 
 const App = () => {
   return (

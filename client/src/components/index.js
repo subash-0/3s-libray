@@ -1,3 +1,5 @@
 export {default as Login} from './Login.jsx'
 export {default as Signup} from './Signup.jsx'
-export {default as Home} from './Home.jsx'
+export {default as HomeComponent} from './HomeComponent.jsx'
+export {default as ToggleMode} from './ToggleMode.jsx'
+export {default as Navbar} from './Navbar.jsx'
