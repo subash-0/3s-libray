@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { animateBox } from "../utils/Animate";
 import ToggleMode from "./ToggleMode";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 const Login = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false)
@@ -18,10 +19,10 @@ const Login = () => {
     const username = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).username : '';
     const password = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).password : '';
     if(formData.username === username && formData.password === password){
-     alert('Login Success');
+     toast.success('Login Success');
       navigate('/');
     }else{
-     alert('Login Failed');
+      toast.error('Invalid User Credentials');
     }
    
   };

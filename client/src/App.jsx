@@ -2,9 +2,25 @@ import { Route, Routes } from "react-router-dom/dist"
 import { Login, Signup } from "./components"
 import ProtectedRoutes from "./utils/ProtectedRoutes"
 import { Home } from "./pages"
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
+    <>
+
+<ToastContainer
+position="top-right"
+autoClose={1000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+/>
               <Routes>
                 <Route element={<ProtectedRoutes />} >
                   <Route path="*" element={<Home />} />
@@ -13,6 +29,7 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
               </Routes>
+       </>
       
   )
 }

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { animateBox } from "../utils/Animate";
 import { useSelector } from "react-redux";
 import ToggleMode from "./ToggleMode";
+import { toast } from "react-toastify";
 
 
 const Signup = () => { 
@@ -20,16 +21,16 @@ const [formData, setFormData] = useState({
   const handlSignup = (e) => {
     e.preventDefault();
     if (formData.username === "" || formData.email === "" || formData.password === "" || formData.cpassword === "") {
-      alert("All fields are required");
+      toast.error("All fields are required");
       return;
     }
     if (formData.password !== formData.cpassword) {
-      alert("Password do not match");
+      toast.error("Password and Confirm Password should be same");
       return;
     }
     
     localStorage.setItem("user", JSON.stringify(formData));
-    alert("Signup Success");
+    toast.success("Signup Success");
     navigate("/login");
   }
   useEffect(() => {
