@@ -22,6 +22,7 @@ function TableComp(props) {
       },
       background: {
         default: darkMode ? '#05445E' : '#189AB4',
+        
       },
       context: {
         background: '#189AB4',
@@ -68,6 +69,8 @@ function TableComp(props) {
 			data={props.data}
       theme='solarized'
       customStyles={customStyles}
+      expandableRows
+      
       expandableRowsComponent={ExpandedComponent }
       
 		/>
