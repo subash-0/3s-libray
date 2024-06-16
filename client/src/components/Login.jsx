@@ -2,11 +2,14 @@ import { useEffect, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { animateBox } from "../utils/Animate";
 import ToggleMode from "./ToggleMode";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { login } from "../redux/slices/authSlice";
 const Login = () => {
   const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false)
+  const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+  const {loading} = useSelector(state => state.auth);  
   const loginRf = useRef(null);
   const h1Ref = useRef(null);
  const darkMode = useSelector(state => state.darkMode);
@@ -14,18 +17,21 @@ const Login = () => {
     username: '',
     password: ''
  });
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const username = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).username : '';
-    const password = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).password : '';
-    if(formData.username === username && formData.password === password){
-     toast.success('Login Success');
+    try {
+      const result = await dispatch(login(formData)).unwrap();
+      console.log(result);
+      toast.success(`Welcome ${formData.username}`);
       navigate('/');
-    }else{
-      toast.error('Invalid User Credentials');
+      
+    } catch (error) {
+      toast.error(error);
+      
     }
-   
-  };
+  
+  
+}
  
   useEffect(() => {
     if (loginRf.current && h1Ref.current) {
@@ -56,7 +62,7 @@ const Login = () => {
               <div className="pb-3 -mt-1 flex items-center gap-2 text-sm">
               <input type="checkbox" checked={showPassword} onChange={()=>setShowPassword(!showPassword)} name="" id="pass" className="cursor-pointer" /> <span>Show password</span>
              </div>
-              <button type="submit" className="w-full bg-primary p-3 rounded-lg text-white font-semibold hover:bg-blue">Login</button>
+              <button type="submit" className="w-full bg-primary p-3 rounded-lg text-white font-semibold hover:bg-blue">{loading?'Loading':'Login'}</button>
               <Link to="/signup" className="block text-center dark:text-white text-sm mt-4 text-gray-dark ">Do not have an account? <span className="hover:underline px-2  hover:text-primary">Sign Up</span> </Link>
             </form>
           </div>

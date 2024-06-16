@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { animateBox } from "../utils/Animate";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ToggleMode from "./ToggleMode";
 import { toast } from "react-toastify";
+import { signup } from "../redux/slices/authSlice";
 
 
 const Signup = () => { 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false)
   const darkMode = useSelector(state => state.darkMode);
@@ -18,7 +20,7 @@ const [formData, setFormData] = useState({
 })
   const signupRef = useRef(null);
   const h1Ref = useRef(null);
-  const handlSignup = (e) => {
+  const handlSignup =async (e) => {
     e.preventDefault();
     if (formData.username === "" || formData.email === "" || formData.password === "" || formData.cpassword === "") {
       toast.error("All fields are required");
@@ -29,9 +31,13 @@ const [formData, setFormData] = useState({
       return;
     }
     
-    localStorage.setItem("user", JSON.stringify(formData));
-    toast.success("Signup Success");
-    navigate("/login");
+    try {
+      const msg =await dispatch(signup(formData )).unwrap()
+      toast.success(msg);
+      navigate('/login');
+    } catch (error) {
+      toast.error("An error occurred while signing up");
+    }
   }
   useEffect(() => {
     if (signupRef.current && h1Ref.current) {

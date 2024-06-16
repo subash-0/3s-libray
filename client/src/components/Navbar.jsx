@@ -11,7 +11,8 @@ const Navbar = () => {
     const [profile, setProfile] = useState(false);
     const [openSideBar, setOenSideBar] = useState(false)
     const darkMode = useSelector(state => state.darkMode);
-    const username = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).username : 'Guest';
+    const username = useSelector(state => state.auth.user);
+    
     
   return (
     <div className={`w-full h-12 ${darkMode?'dark':''}  text-white  relative`}>

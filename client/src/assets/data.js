@@ -50,18 +50,19 @@ additionalBooks.forEach((title, index) => {
 });
 
 
-export const students = [
-    { name: "John Doe", contact: "555-1234", batch: 2078 },
-    { name: "Jane Smith", contact: "555-5678", batch: 2078 },
-    { name: "Alice Johnson", contact: "555-9101", batch: 2078 },
-    { name: "Bob Brown", contact: "555-1121", batch: 2078 },
-    { name: "Charlie Davis", contact: "555-3141", batch: 2078 },
-    { name: "Daisy Evans", contact: "555-5161", batch: 2078 },
-    { name: "Edward Franklin", contact: "555-7181", batch: 2078 },
-    { name: "Fiona Green", contact: "555-9201", batch: 2078 },
-    { name: "George Harris", contact: "555-1221", batch: 2078 },
-    { name: "Hannah King", contact: "555-3241", batch: 2078 }
-];
+export const visitors = [
+    { name: "John Doe", contact: "555-1234",  department: "Computer Science" },
+    { name: "Jane Smith", contact: "555-5678",  department: "Electrical Engineering" },
+    { name: "Alice Johnson", contact: "555-9101",  department: "Mechanical Engineering" },
+    { name: "Bob Brown", contact: "555-1121",  department: "Civil Engineering" },
+    { name: "Charlie Davis", contact: "555-3141",  department: "Computer Science" },
+    { name: "Daisy Evans", contact: "555-5161",  department: "Electrical Engineering" },
+    { name: "Edward Franklin", contact: "555-7181",  department: "Mechanical Engineering" },
+    { name: "Fiona Green", contact: "555-9201",  department: "Civil Engineering" },
+    { name: "George Harris", contact: "555-1221",  department: "Computer Science" },
+    { name: "Hannah King", contact: "555-3241",  department: "Electrical Engineering" }
+  ];
+  
 
 export const libraryStaffs = [
     { name: "Emily Johnson", contact: "555-2001", position: "Chief Librarian" },

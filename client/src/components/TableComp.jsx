@@ -59,9 +59,7 @@ function TableComp(props) {
     // Force re-render by changing the key
     setKey(prevKey => prevKey + 1);
   }, [darkMode]);
-  const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
 	return (
-    <div className="overflow-x-hidde">
 		<DataTable
         key={key}
       pagination
@@ -69,12 +67,9 @@ function TableComp(props) {
 			data={props.data}
       theme='solarized'
       customStyles={customStyles}
-      expandableRows
       
-      expandableRowsComponent={ExpandedComponent }
       
 		/>
-    </div>
 	);
 }
 

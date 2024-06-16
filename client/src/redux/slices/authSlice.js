@@ -1,16 +1,25 @@
 // src/reducers/authSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+
 
 export const login = createAsyncThunk(
   'auth/login',
   async (credentials, { rejectWithValue }) => {
     try {
-     console.log('Credentials received in thunk:', credentials);
-      const response = await axios.post('/api/auth/login', credentials);
-      return response.data;
+      const userData = localStorage.getItem('user');
+      if (!userData) {
+        return rejectWithValue('user not found in local storage');
+      }
+
+      const user = JSON.parse(userData).username || null;
+      const password = JSON.parse(userData).password || null;
+      if (user === credentials.username && password === credentials.password) {
+        return user;
+      } else {
+        return rejectWithValue('Invalid Credentials');
+      }
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue('An error occurred during login');
     }
   }
 );
@@ -18,11 +27,11 @@ export const signup = createAsyncThunk(
   'auth/signup',
   async (credentials, { rejectWithValue }) => {
     try {
-     console.log('Credentials received in thunk:', credentials);
-      const response = await axios.post('/api/auth/signup', credentials);
-      return response.data;
+    localStorage.setItem('user', JSON.stringify(credentials));
+    return 'User Registered Successfully';
+      
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data); 
     }
   }
 );
@@ -36,6 +45,7 @@ const authSlice = createSlice({
   },
   reducers: {
     logout: (state) => {
+      localStorage.removeItem('user');
       state.user = null;
     },
   },
