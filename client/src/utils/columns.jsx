@@ -29,22 +29,23 @@ const useColumns = () => {
     {
       name: 'ISBN',
       selector: row => row.isbn,
+      sortable: true,
       wrap: true,
     },
     {
       name: 'Name',
       selector: row => row.name,
-      wrap: true,
+      sortable: true,
     },
     {
       name: 'Author',
       selector: row => row.author,
-      wrap: true,
+      sortable: true,
     },
     {
       name: 'Price($)',
       selector: row => row.price,
-      wrap: true,
+      sortable: true,
     },
     {
       name: 'Actions',

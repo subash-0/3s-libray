@@ -24,4 +24,3 @@ export const visitorsFields = [
     phone: '',
     department: ''
   }
- 

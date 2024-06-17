@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { animateBox } from "../utils/Animate";
-import ToggleMode from "./ToggleMode";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { login } from "../redux/slices/authSlice";
+import { ToggleMode } from "../components";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();

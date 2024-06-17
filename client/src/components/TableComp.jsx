@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import DataTable, { createTheme } from 'react-data-table-component';
 import { useSelector } from 'react-redux';
-  
+import { SiMicrosoftexcel } from "react-icons/si";
+import { MdPictureAsPdf } from "react-icons/md";
+import { exportToExcel, exportToPdf } from '../utils/exports';
 
 function TableComp(props) {
+  const [filterBook, setFilterBook] = useState(props.data);
   const darkMode =  useSelector(state => state.darkMode);
   const [key, setKey] = useState(0);
   const customStyles = {
@@ -59,17 +62,43 @@ function TableComp(props) {
     // Force re-render by changing the key
     setKey(prevKey => prevKey + 1);
   }, [darkMode]);
+  const handleChange = (e) => {
+    let value = e.target.value.toLowerCase();
+    let result =  props.data.filter((data) => {
+      return(
+        data.name.toLowerCase().includes(value) ||
+        data.author.toLowerCase().includes(value) 
+      )
+    });
+    setFilterBook(result);
+    
+  };
 	return (
+    <div className="">
+      
+     <div className=" flex justify-between bg-primary text-white dark:bg-darkbg w-full mb-1 gap-10  items-center">
+    <div className="flex gap-1 justify-center items-center bg-darkbg dark:bg-primary rounded-sm">
+    <input type="text" placeholder='Search Here .....'  className='w-full p-2 rounded-sm bg-transparent focus:outline-none text-white placeholder-white ' onChange={handleChange}/> 
+    </div>
+    <div className='px-4 flex gap-3 cursor-pointer'>
+     <SiMicrosoftexcel onClick={()=>exportToExcel({data:filterBook})} size={20}  />
+     <MdPictureAsPdf  onClick={()=>exportToPdf({data:filterBook,columns:props.columns})} size={20}/>
+     
+    </div>
+     </div>
+   
 		<DataTable
+    
         key={key}
       pagination
 			columns={props.columns }
-			data={props.data}
+			data={filterBook}
       theme='solarized'
       customStyles={customStyles}
       
       
 		/>
+     </div>
 	);
 }
 

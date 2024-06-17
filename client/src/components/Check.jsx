@@ -1,6 +1,6 @@
 import TableComp from "./TableComp"
 import { books } from '../assets/data'
-import userColumns from '../assets/columns';
+import userColumns from '../utils/columns';
 import UpdateBook from './UpdateBook';
 
 const Check = () => {

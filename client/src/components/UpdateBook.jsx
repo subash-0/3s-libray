@@ -1,5 +1,5 @@
 import { MdClose } from "react-icons/md";
-import { formFields } from "../assets/formField";
+import { formFields } from "../utils/formField";
 import ReusableForm from "./ReusableForm";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";

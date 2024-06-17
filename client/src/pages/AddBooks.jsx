@@ -2,12 +2,11 @@
 import { addBook } from "../redux/slices/bookSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import useColumns from "../assets/columns";
-import TableComp from './TableComp'
-import ReusableForm from "./ReusableForm";
-import { formFields } from "../assets/formField";
-import { initialBooks } from "../assets/formField";
-import UpdateBook from "./UpdateBook";
+import useColumns from "../utils/columns";
+
+import { formFields } from "../utils/formField";
+import { initialBooks } from "../utils/formField";
+import { ReusableForm, TableComp, UpdateBook } from "../components";
 
 
 const AddBooks = () => {

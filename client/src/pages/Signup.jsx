@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { animateBox } from "../utils/Animate";
 import { useDispatch, useSelector } from "react-redux";
-import ToggleMode from "./ToggleMode";
 import { toast } from "react-toastify";
 import { signup } from "../redux/slices/authSlice";
+import { ToggleMode } from "../components";
 
 
 const Signup = () => { 
