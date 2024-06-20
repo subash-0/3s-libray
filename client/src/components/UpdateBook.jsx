@@ -24,8 +24,9 @@ const UpdateBook = (props) => {
     
    }
   };
+  
   return (
-    <div className="w-full h-full absolute top-0 left-0">
+    <div className="w-full h-[calc(100vh-3rem)] absolute top-0 left-0">
     <div className="w-full h-full  flex justify-center items-center bg-black/70">
       <div className="bg-primary dark:bg-darkbg p-4 rounded-md px-3 w-full sm:w-80">
         <div className="text-center text-2xl text-white drop-shadow-4xl"> <span>Update Book</span>

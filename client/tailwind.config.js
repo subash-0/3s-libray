@@ -6,13 +6,15 @@ export default {
   ],
   theme: {
     colors: {
-      'darkbg':'#05445E',
+      'darkbg':'#3a405a',
       'black':'#000000',
       'white':'#ffffff',
-      'primary':'#189AB4',
+      'primary':'#189AB4', 
       'btnbg':'#75E6DA',
       'blue': '#1fb6ff',
       'red': '#ff4949',
+      'input': '#1f2937',
+      'poweredBlue': '#D4F1F4',
       'transparent': 'transparent',
       
     },

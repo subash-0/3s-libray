@@ -11,8 +11,7 @@ export const addBook = createAsyncThunk(
         } catch (error) {
         return rejectWithValue('An error occurred while adding book');
         }
-    }
-    );
+    } );
 export const removeBook = createAsyncThunk(
     'book/removeBook',
     async (isbn, { rejectWithValue }) => {

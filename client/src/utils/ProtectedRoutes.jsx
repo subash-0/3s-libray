@@ -2,7 +2,9 @@
 import {  Navigate } from 'react-router-dom';
 
 const ProtectedRoutes = ({children}) => {
-let user = localStorage.getItem('user') ? true : false;
+    let user = localStorage.getItem('user');
+    
+
 return user ? (<>
 {children}
 </>):<Navigate to="/login" />;

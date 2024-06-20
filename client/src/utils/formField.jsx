@@ -11,7 +11,14 @@ export const visitorsFields = [
     { name: 'department', label: 'Department', type: 'text' },
   ];
   
-
+export const initialIssuedBooks = [
+  {name: 'isbn', label: 'ISBN', type: 'text'},
+  {name: 'bookName', label: 'Book Name', type: 'text'},
+  {name: 'name', label: 'Visitor Name', type: 'text'},
+  {name: 'issueDate', label: 'Issue Date', type: 'date'},
+  {name: 'amount', label: 'Amount', type: 'number'},
+  {name: 'paidAmount', label: 'Paid Amount', type: 'number'},
+];
   
   export const initialBooks = {
     isbn: '',

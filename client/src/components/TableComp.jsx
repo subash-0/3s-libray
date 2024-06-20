@@ -6,15 +6,17 @@ import { MdPictureAsPdf } from "react-icons/md";
 import { exportToExcel, exportToPdf } from '../utils/exports';
 
 function TableComp(props) {
-  const [filterBook, setFilterBook] = useState(props.data);
+  const [filterData, setFilterData] = useState(props.data);
   const darkMode =  useSelector(state => state.darkMode);
   const [key, setKey] = useState(0);
   const customStyles = {
     headCells: {
       style: {
-        fontSize: '20px',
+        fontSize: '15px',
         fontWeight: 'bold',
         color: darkMode ? '#EB4B98' : 'white',
+        whiteSpace: 'nowrap',
+        wordWrap: 'break-word',
       },
     },
   };
@@ -24,7 +26,7 @@ function TableComp(props) {
         primary: '#FFFFFF',
       },
       background: {
-        default: darkMode ? '#05445E' : '#189AB4',
+        default: darkMode ? '#3a405a' : '#189AB4',
         
       },
       context: {
@@ -38,6 +40,12 @@ function TableComp(props) {
         button: 'white',
         hover: 'white',
         disabled: 'rgba(0,0,0,.12)',
+      },
+      headCells: {
+        style: {
+          paddingLeft: '8px', // override the cell padding for head cells
+          paddingRight: '8px',
+        },
       },
       pagination: {
         button: {
@@ -67,12 +75,16 @@ function TableComp(props) {
     let result =  props.data.filter((data) => {
       return(
         data.name.toLowerCase().includes(value) ||
-        data.author.toLowerCase().includes(value) 
+        data[props.field].toLowerCase().includes(value) 
+
       )
     });
-    setFilterBook(result);
-    
+
+    setFilterData(result);
   };
+  useEffect(() => {
+    setFilterData(props.data);
+  }, [props.data]);
 	return (
     <div className="">
       
@@ -81,18 +93,18 @@ function TableComp(props) {
     <input type="text" placeholder='Search Here .....'  className='w-full p-2 rounded-sm bg-transparent focus:outline-none text-white placeholder-white ' onChange={handleChange}/> 
     </div>
     <div className='px-4 flex gap-3 cursor-pointer'>
-     <SiMicrosoftexcel onClick={()=>exportToExcel({data:filterBook})} size={20}  />
-     <MdPictureAsPdf  onClick={()=>exportToPdf({data:filterBook,columns:props.columns})} size={20}/>
+     <SiMicrosoftexcel onClick={()=>exportToExcel({data:filterData})} size={20}  />
+     <MdPictureAsPdf  onClick={()=>exportToPdf({data:filterData,columns:props.columns})} size={20}/>
      
     </div>
      </div>
    
 		<DataTable
-    
+    allowOverflow
         key={key}
       pagination
 			columns={props.columns }
-			data={filterBook}
+			data={filterData}
       theme='solarized'
       customStyles={customStyles}
       

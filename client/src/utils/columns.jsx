@@ -36,6 +36,7 @@ const useColumns = () => {
       name: 'Name',
       selector: row => row.name,
       sortable: true,
+      wrap: true,
     },
     {
       name: 'Author',
@@ -45,6 +46,7 @@ const useColumns = () => {
     {
       name: 'Price($)',
       selector: row => row.price,
+      wrap: true,
       sortable: true,
     },
     {

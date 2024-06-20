@@ -26,7 +26,7 @@ export const exportToPdf = ({data,columns}) => {
       body: tableRows,
     });
 
-    doc.save("table.pdf");
+    doc.save("3s_library_record.pdf");
   };
 
   

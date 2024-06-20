@@ -11,11 +11,12 @@ const Navbar = () => {
     const [profile, setProfile] = useState(false);
     const [openSideBar, setOenSideBar] = useState(false)
     const darkMode = useSelector(state => state.darkMode);
-    const username = useSelector(state => state.auth.user);
+    const user = localStorage.getItem('user');
+    let username = JSON.parse(user).username;
     
     
   return (
-    <div className={`w-full h-12 ${darkMode?'dark':''}  text-white  relative`}>
+    <div className={`w-full h-12 ${darkMode?'dark':''}  text-white  sticky top-0 z-20`}>
        
         <div className="flex justify-between items-center dark:bg-darkbg h-full w-full bg-primary px-4 sm:px-10 md:px-16 xl:px-20">
             <div className="flex gap-2 items-center" >

@@ -20,10 +20,10 @@ const ReusableForm = ({ initialValues, onSubmit, fields }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 w-full p-2">
+    <form onSubmit={handleSubmit} className="space-y-3 w-full p-2">
       {fields.map((field) => (
         <div key={field.name} className="flex flex-col">
-          <label htmlFor={field.name} className="mb-2 font-medium text-white">
+          <label htmlFor={field.name} className="mb-1 font-medium text-white">
             {field.label}
           </label>
           <input
@@ -33,7 +33,7 @@ const ReusableForm = ({ initialValues, onSubmit, fields }) => {
             value={values[field.name] || ''}
             placeholder={`Enter ${field.label}`}
             onChange={handleChange}
-            className='p-2 rounded-md outline-none text-black dark:bg-btnbg/30 focus:outline-none' autoComplete="false"
+            className='p-2 rounded-md outline-none text-black dark:bg-input dark:text-white focus:outline-none' autoComplete="false"
             
              required     />
        

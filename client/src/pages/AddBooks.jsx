@@ -13,12 +13,10 @@ const AddBooks = () => {
   const {booksColumns , isEditing, currentBook , handleCloseEdit } = useColumns();
   const addedBooks = useSelector((state) => state.book.books);
   const dispatch = useDispatch();
-
-
 const handleSubmit = async (values) => {
 try {
- const msg = await dispatch(addBook(values)).unwrap();
-  toast.success(msg);
+ dispatch(addBook(values)).unwrap();
+  toast.success("Book Added Successfully");
 
 } catch (error) {
   toast.error(error);
@@ -26,7 +24,7 @@ try {
   
 }
   return (
-    <div className='my-5 flex   flex-col lg:flex-row relative px-4 sm:px-10 md:px-16 xl:px-20 flex-wrap'>
+    <div className='py-5 flex   flex-col lg:flex-row relative px-4 sm:px-10 md:px-16 xl:px-20 flex-wrap z-0'>
         <div className="h-full w-full text-primary">
            
            <div className=" flex  flex-col sm:flex-row gap-3 w-full ">
@@ -36,7 +34,7 @@ try {
                     </div>
                     <div className="w-full">
                       <h1 className="text-lg sm:text-xl mb-4">Registered Books</h1>
-                      <TableComp data={addedBooks} columns={booksColumns}  />
+                      <TableComp data={addedBooks} columns={booksColumns} field='author'  />
                     </div>
            </div>
             </div>
