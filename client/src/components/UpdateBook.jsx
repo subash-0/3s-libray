@@ -1,18 +1,20 @@
 import { MdClose } from "react-icons/md";
 import { formFields } from "../utils/formField";
 import ReusableForm from "./ReusableForm";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { updateBook } from "../redux/slices/bookSlice";
 const UpdateBook = (props) => {
   const dispatch = useDispatch();
-  const isbn = props.book;
-  const recentBook =useSelector((state) => state.book.books.find((book) => book.isbn === isbn));
+  let isbn =props.book;
+  const recentBook =localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')).find(book => book.isbn === isbn) : null;
+  console.log(recentBook)
   const initialBook = {
     isbn: recentBook.isbn,
     name: recentBook.name,
     author: recentBook.author,
     price: recentBook.price,
+    quantity: recentBook.quantity,
   };
   const handleUpdate = async (value) => {
    try {

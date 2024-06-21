@@ -3,6 +3,8 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import {removeIssueBook} from "../redux/slices/issueBookSlice";
+import { IoMdEye } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 
 const IssueColumns = () => {
@@ -60,19 +62,24 @@ const IssueColumns = () => {
     {
       name: 'Actions',
       cell: row => (
-        <div>
+        <div className="w-fit flex justify-center items-center gap-1">
           <button 
             onClick={() => handleEdit(row?.isbn)} 
-            className='bg-blue text-white px-2 py-1 rounded mr-2'
+            className='bg-blue text-white p-1 rounded'
           >
             <MdEdit size={15} />
           </button>
           <button 
             onClick={() => handleDelete(row?.isbn)} 
-            className='bg-red text-white px-2 py-1 rounded'
+            className='bg-red text-white p-1 rounded'
           >
             <MdDelete size={15} />
-          </button>
+          </button> 
+          <Link to={`/visitor-issued/${row?.isbn}`} 
+            className=' text-white p-1 rounded'
+          >
+            <IoMdEye size={15} />
+          </Link>
         </div>
       ),
       ignoreRowClick: true,

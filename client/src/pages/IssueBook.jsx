@@ -46,6 +46,7 @@ const IssueBook = () => {
     border: "none",
     borderRadius: "2px",
     backgroundColor: darkMode ? "#1f2937" : "#f3f4f6",
+    borderBottom: "1px solid #d1d5db",
     boxShadow: "none",
     color: darkMode ? "#f3f4f6" : "#1f2937",
   };
@@ -54,13 +55,14 @@ const IssueBook = () => {
   const formatResult = (item) => {
     return (
       <>
-        <div style={{ display: "flex",gap:"10px", textAlign: "left",margin:"2px" }}>
-        <span>{item?.isbn}</span>
-          {item.name}
+        <div className="flex gap-2 text-black dark:hover:text-primary cursor-pointer">
+        <span>{item?.isbn} {item?.phone}</span>
+        <span>  {item.name}</span>
         </div>
       </>
     );
   };
+  console.log(formData);
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -75,6 +77,7 @@ const IssueBook = () => {
       setFormData({
         isbn: "",
         bookName: "",
+        phone: "",
         name: "librarian",
         issueDate: "",
         amount: 30,
@@ -119,8 +122,7 @@ const IssueBook = () => {
                 showIcon={false}
                 styling={inputStlye}
                 placeholder="Search Book"
-                value={formData.bookName}
-                className="z-10 my-2 "
+                className="z-10 my-2 border-b-2 border-primary"
               />
             </div>
             <div>
@@ -132,13 +134,14 @@ const IssueBook = () => {
                 id="searchVisitor"
                 items={visitor}
                 onSelect={(item) =>
-                  setFormData({ ...formData, name: item.name })
+                  setFormData({ ...formData, name: item.name, phone: item.phone})
                 }
                 formatResult={formatResult}
+                onSearch={(text) => {text.name }}
                 showIcon={false}
                 styling={inputStlye}
                 placeholder="Search Visitor"
-                className="z-0 my-2 "
+                className="z-0 my-2 border-b-2 border-primary"
               />
             </div>
 
@@ -150,7 +153,7 @@ const IssueBook = () => {
                 onChange={(e) =>
                     setFormData({ ...formData, issueDate: e.target.value })}
                 placeholder="Issue Date"
-              className="w-full p-1 rounded-sm my-1  outline-none text-black dark:bg-input/90 dark:text-white"
+              className="w-full p-1 rounded-sm my-1 border-b-2 border-primary  outline-none text-black dark:bg-input/90 dark:text-white"
               required
             />
             <label htmlFor="amount">Amount:</label>
@@ -159,7 +162,7 @@ const IssueBook = () => {
               id="amount"
               placeholder="30"
               value={formData.amount}
-              className="w-full p-1 rounded-sm my-2  outline-none  text-black bg-white dark:bg-input/80 dark:text-white"
+              className="w-full p-1 rounded-sm my-2 border-b-2 border-primary  outline-none  text-black bg-white dark:bg-input/80 dark:text-white"
               disabled
             />
             <label htmlFor="pay">Paid Amount</label>
@@ -170,7 +173,7 @@ const IssueBook = () => {
               onChange={(e) =>
                 setFormData({ ...formData, paidAmount: e.target.value })}
               placeholder="Paid Amount"
-              className="w-full p-1 rounded-sm my-2  outline-none text-black  dark:bg-input/80 dark:text-white"
+              className="w-full p-1 rounded-sm my-2 border-b-2 border-primary outline-none text-black  dark:bg-input/80 dark:text-white"
               required
             />
             <button className="text-white hover:opacity-85  bg-darkbg dark:bg-input/80 w-full p-2 rounded-sm my-2  dark:text-white font-Lora" type="submit">

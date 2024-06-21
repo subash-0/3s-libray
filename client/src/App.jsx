@@ -1,5 +1,5 @@
 import { Outlet, Route, Routes, redirect } from "react-router-dom"
-import {  Check, Navbar } from "./components"
+import {  Chart, Check, IssuedCom, Navbar } from "./components"
 import ProtectedRoutes from "./utils/ProtectedRoutes"
 import { AddBooks, AddVisitors, AllIssuedBook, GetAllBooks, Home, IssueBook, Login, Signup, VisitorsList } from "./pages"
 import { ToastContainer } from "react-toastify"
@@ -37,6 +37,8 @@ theme="colored"
                   <Route path="/issue-books" element={<IssueBook />} />
                   <Route path="/all-issued-books" element={<AllIssuedBook />} />
                   <Route path="/visitors-list" element={<VisitorsList />} />
+                  <Route path="/generate-reports" element={<Chart />} />
+                  <Route path="/visitor-issued/:id" element={<IssuedCom />} />
                 </Route>
                
                 <Route path="/login" element={<Login />} />

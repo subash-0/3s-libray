@@ -44,6 +44,11 @@ const useColumns = () => {
       sortable: true,
     },
     {
+      name: 'Quantity',
+      selector: row => row.quantity,
+      sortable: true,
+    },
+    {
       name: 'Price($)',
       selector: row => row.price,
       wrap: true,

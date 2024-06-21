@@ -3,6 +3,7 @@ export const formFields = [
     { name: 'name', label: 'Name', type: 'text' },
     { name: 'author', label: 'Author', type: 'text' },
     { name: 'price', label: 'Price', type: 'number' },
+    { name: 'quantity', label: 'Quantity', type: 'number'}
   ];
   
 export const visitorsFields = [

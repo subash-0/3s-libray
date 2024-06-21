@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^2.0.4",
     "@reduxjs/toolkit": "^2.2.5",
+    "@syncfusion/ej2-react-charts": "^26.1.38",
     "axios": "^1.7.2",
     "gsap": "^3.12.5",
     "jspdf": "^2.5.1",

@@ -33,7 +33,7 @@ const ReusableForm = ({ initialValues, onSubmit, fields }) => {
             value={values[field.name] || ''}
             placeholder={`Enter ${field.label}`}
             onChange={handleChange}
-            className='p-2 rounded-md outline-none text-black dark:bg-input dark:text-white focus:outline-none' autoComplete="false"
+            className='p-2 rounded-md outline-none text-black dark:bg-input dark:text-white focus:outline-none border-b-2 border-primary' autoComplete="false"
             
              required     />
        
