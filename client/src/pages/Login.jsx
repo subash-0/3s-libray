@@ -12,6 +12,7 @@ const Login = () => {
   const {loading} = useSelector(state => state.auth);  
   const loginRf = useRef(null);
   const h1Ref = useRef(null);
+  const textRefs = ['Welcome To', '3S LIBRARY MANAGEMENT SYSTEM'];
  const darkMode = useSelector(state => state.darkMode);
  const [formData, setFormData] = useState({
     username: '',
@@ -36,7 +37,6 @@ const Login = () => {
   useEffect(() => {
     if (loginRf.current && h1Ref.current) {
       const tl = animateBox([h1Ref.current, loginRf.current]);
-
       return () => {
         tl.kill();
       };

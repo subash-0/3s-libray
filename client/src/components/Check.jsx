@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import SplitText from 'split-text-js';
 import { useEffect, useRef } from 'react'
+import PieChart from './PieChart';
 
 const Check = () => {
   const textRefs = useRef([]);
@@ -39,7 +40,8 @@ const Check = () => {
   };
 
   return (
-      <div className="flex justify-center items-center uppercase font-bold h-screen w-screen bg-black text-white">
+      <div className="flex justify-center items-center uppercase font-bold h-screen w-fit bg-black text-white">
+        <PieChart />
           <div className="absolute font-Lora text-4xl drop-shadow-white duration-100 top-[50%]" ref={addToRefs}>First text to reveal</div>
           <div className="absolute font-Lora text-4xl drop-shadow-white duration-100 top-[50%]" ref={addToRefs}>Second text to reveal</div>
           <div className="absolute font-Lora text-4xl drop-shadow-white duration-100 top-[50%]" ref={addToRefs}>Third text to reveal</div>

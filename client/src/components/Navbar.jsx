@@ -38,7 +38,7 @@ const Navbar = () => {
               {openSideBar ? <IoClose className="text-2xl"/> : <MdMenu className="text-2xl"/>}
               </button>
 
-              <Link to={"/"} className="flex items-center border-l-2 border-white px-3 text-3xl uppercase w-full font-bold h-full relative text-white">
+              <Link to={"/"} className="flex items-center border-l-2 border-white px-3 sm:text-3xl uppercase w-full font-bold h-full relative text-white">
           <div className=" drop-shadow-blue duration-100 " ref={addToRefs}>WelCome To</div>
           <div className=" absolute  drop-shadow-blue duration-100 " ref={addToRefs}>3S LIBRARY</div>
              </Link>

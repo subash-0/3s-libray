@@ -7,14 +7,28 @@ const PieChart = () => {
   const darkMode = useSelector(state => state.darkMode);
     
   return (
-    <div className='w-fit'>
-       <AccumulationChartComponent id='charts' title='Book Amount Analysis' legendSettings={{position:'Bottom',color:darkMode?'white':'black'}} tooltip={{enable:true}}  titleStyle={{color:darkMode?'white':'black'}}>
-    <Inject services={[PieSeries, AccumulationTooltip, AccumulationLegend, AccumulationDataLabel]} />
-    <AccumulationSeriesCollectionDirective>
-      <AccumulationSeriesDirective dataSource={books} innerRadius='50%' xName='name' yName='quantity' type='Pie' dataLabel={{visible:true, name:'name' , position:'Inside'}}/>
-    </AccumulationSeriesCollectionDirective>
-  </AccumulationChartComponent>
-    </div>
+    <div className='w-full h-full'>
+    <AccumulationChartComponent 
+      id='charts' 
+      title='Book vs Quantity Analysis' 
+      legendSettings={{ position: 'Bottom', color: darkMode ? 'white' : 'black' }} 
+      tooltip={{ enable: true }}  
+      titleStyle={{ color: darkMode ? 'white' : 'black' }} 
+      className='w-full h-full'
+    >
+      <Inject services={[PieSeries, AccumulationTooltip,AccumulationLegend, AccumulationDataLabel]} />
+      <AccumulationSeriesCollectionDirective>
+        <AccumulationSeriesDirective 
+          dataSource={books} 
+          innerRadius='50%' 
+          xName='name' 
+          yName='quantity' 
+          type='Pie' 
+          dataLabel={{ visible: true, name: 'name', position: 'Inside' }} 
+        />
+      </AccumulationSeriesCollectionDirective>
+    </AccumulationChartComponent>
+  </div>
   )
 }
 

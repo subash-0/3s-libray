@@ -49,12 +49,12 @@ const [formData, setFormData] = useState({
     }
   }, [signupRef]);
   return (
-    <div className={`bg-hero-pattern ${darkMode ? 'dark':''} bg-cover font-Lora bg-no-repeat w-screen h-screen`}>
+    <div className={`bg-hero-pattern ${darkMode ? 'dark':''} bg-cover font-Lora bg-no-repeat w-screen h-screen z-40`}>
       <div className="bg-black/60 w-full h-full dark:bg-darkbg/30 dark:text-white ">
-      <h1 className="w-full absolute top-16 sm:top-10 drop-shadow-white text-primary dark:text-white text-center text-xl sm:text-3xl" ref={h1Ref}>Welcome To <br/> 3S LIBRARY MANAGEMENT SYSTEM</h1>
+      <h1 className="w-full z-40 absolute top-16 sm:top-10 drop-shadow-white text-primary dark:text-white text-center text-xl sm:text-3xl" ref={h1Ref}>Welcome To <br/> 3S LIBRARY MANAGEMENT SYSTEM</h1>
         <div className="flex justify-center items-center h-full px-4" ref={signupRef}>
         
-          <div className="w-full  sm:w-96 h-fit drop-shadow-md dark:bg-darkbg  dark:text-white bg-white p-4 sm:p-8 rounded-xl">
+          <div className="w-full z-40  sm:w-96 h-fit drop-shadow-md dark:bg-darkbg  dark:text-white bg-white p-4 sm:p-8 rounded-xl">
             <h1 className="sm:text-2xl text-4xl font-bold text-center">Sign Up</h1>
             <form className="mt-6" onSubmit={handlSignup}>
               <div className="mb-5">

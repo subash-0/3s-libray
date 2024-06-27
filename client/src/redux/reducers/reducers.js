@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
     auth: authReducer,
     book : bookReducer,
     visitor: visitorReducer,
-    issuedBook: issueBookReducer
+    issuedBook: issueBookReducer,
 });
 
 export default rootReducer;

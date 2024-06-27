@@ -10,8 +10,8 @@ const Home = () => {
         <div className="px-4 py-10 -z-50 sm:px-10 md:px-16 xl:px-20 pb-10 rounded-md">
         <Hero  className="py-5 -z-30"/>
         </div>
-            <div className="flex justify-center items-center gap-3 w-full h-full flex-wrap">
-              <div className="">
+            <div className="">
+              <div className="flex justify-center items-center">
               <PieChart />
               </div>
             <Bulb />

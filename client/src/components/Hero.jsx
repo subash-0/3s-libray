@@ -26,7 +26,7 @@ const Hero = () => {
     <div className="w-full">
       <div className="flex justify-center items-center gap-4  sm:gap-1 md:gap-2 lg:gap-10 flex-col sm:flex-row flex-wrap">
        {ItemsList.map((item,index)=>(
-          <div key={index} className={`${itemStyle} bg-primary/${index}`} ref={el=>itemsRef.current[index]=el} >
+          <div key={index} className={`${itemStyle} bg-primary/${index} z-40`} ref={el=>itemsRef.current[index]=el} >
             <h1 className="text-xl font-bold drop-shadow-md">{item.value}</h1>
             <h1 className="text-sm font-semibold drop-shadow-md">{item.name}</h1>
           </div>
