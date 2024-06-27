@@ -4,7 +4,7 @@ import { animateBox } from "../utils/Animate";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { signup } from "../redux/slices/authSlice";
-import { ToggleMode } from "../components";
+import { Bulb, ToggleMode } from "../components";
 
 
 const Signup = () => { 
@@ -83,7 +83,8 @@ const [formData, setFormData] = useState({
             </form>
           </div>
         </div>
-        <div className="absolute top-3 right-3 bg-darkbg  rounded-full drop-shadow-2xl text-white hover:bg-white hover:text-btnbg " ><ToggleMode /> </div>
+        <div className="absolute top-3 right-3 bg-darkbg  rounded-full drop-shadow-2xl text-white hover:bg-white hover:text-btnbg " ><ToggleMode />
+        <Bulb /> </div>
       </div>
     
     </div>

@@ -43,9 +43,21 @@ export default {
       },
       borderRadius: {
         '4xl': '2rem',
+      },
+      keyframes: {
+        spinIn: {
+          to: { transform: 'rotate(18deg)'}
+        },
+        spinOut: {
+          to: { transform: 'rotate(360deg)'}
+        }
+      },
+      animation: {
+        spinIn: 'spinIn 30s linear infinite',
+        spinout: 'spinIn 10s linear infinite',
       }
     },
-    
+ 
   plugins: [],
 },
 darkMode: 'class',

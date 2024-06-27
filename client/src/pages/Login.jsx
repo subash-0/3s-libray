@@ -4,7 +4,7 @@ import { animateBox } from "../utils/Animate";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { login } from "../redux/slices/authSlice";
-import { ToggleMode } from "../components";
+import { Bulb, ToggleMode } from "../components";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -43,9 +43,9 @@ const Login = () => {
     }
   }, [loginRf]);
   return (
-    <div className={`bg-hero-pattern ${darkMode ? 'dark':''} bg-cover font-Lora bg-no-repeat w-screen h-screen overflow-x-hidden`}>
-      <div className="bg-black/35 w-full h-full dark:bg-darkbg/30 dark:text-white ">
-      <h1 className="w-full absolute top-16 sm:top-10 drop-shadow-blue text-primary dark:text-white text-center text-xl sm:text-3xl" ref={h1Ref}>Welcome To <br/> 3S LIBRARY MANAGEMENT SYSTEM</h1>
+    <div className={`bg-hero-pattern ${darkMode ? 'dark':''} bg-cover z-10 font-Lora bg-no-repeat w-screen h-screen overflow-x-hidden`}>
+      <div className="bg-black/55 w-full h-full dark:bg-darkbg/30 dark:text-white ">
+      <h1 className="w-full absolute top-16 z-50 mix-blend-* sm:top-10 drop-shadow-blue text-primary dark:text-white text-center text-xl sm:text-3xl" ref={h1Ref}>Welcome To <br/> 3S LIBRARY MANAGEMENT SYSTEM</h1>
         <div className="flex justify-center items-center h-full px-4 overflow-x-hidden" ref={loginRf} >
         
           <div className="w-full  sm:w-80 h-fit  dark:bg-darkbg  dark:text-white bg-white p-4 sm:p-8 rounded-xl">
@@ -67,9 +67,10 @@ const Login = () => {
             </form>
           </div>
         </div>
-        <div className="absolute top-3 right-3 bg-darkbg  rounded-full drop-shadow-2xl text-white hover:bg-white hover:text-btnbg " ><ToggleMode /> </div>
+        <div className="absolute top-3 right-3 bg-darkbg  rounded-full drop-shadow-2xl text-white hover:bg-white hover:text-btnbg " ><ToggleMode />
+        <Bulb /> </div>
       </div>
-    
+      
     </div>
   )
 }

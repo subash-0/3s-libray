@@ -1,7 +1,7 @@
 import { Category, ChartComponent,DataLabel,Inject,Legend,LineSeries, SeriesCollectionDirective, SeriesDirective, Tooltip } from '@syncfusion/ej2-react-charts'
 import {registerLicense} from '@syncfusion/ej2-base';
 import { useSelector } from 'react-redux';
-registerLicense('Ngo9BigBOggjHTQxAR8/V1NCaF5cXmZCeEx0Qnxbf1x0ZFBMZF9bRHBPMyBoS35RckVlW39edXBWRmZbUkBz');
+registerLicense('ORg4AjUWIQA/Gnt2U1hhQlJBfVhdX2RWfFN0QXNcdV52flBOcC0sT3RfQFljT3xUdkBiXHxbeXRdQA==');
 
 
 const Chart = () => {
@@ -10,7 +10,7 @@ const Chart = () => {
     console.log(data);
     const primaryXAxis = {
         valueType: 'Category',
-        title: 'Books',
+        title: 'Visitors',
         labelStyle: { color: darkMode ? 'white' : 'black'},
         titleStyle: {color: darkMode ? 'white' : 'black'}
     };
